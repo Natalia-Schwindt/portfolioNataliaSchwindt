@@ -3,7 +3,6 @@ import { useEffect, useState, useRef } from "react";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
-// 🔹 Animación para orbes mágicos
 const magicOrbAnimation = keyframes`
   0% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
   25% { transform: translate(20vw, 15vh) scale(1.0); opacity: 0.6; }
@@ -35,10 +34,10 @@ const Presentation = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.disconnect(); // se desconecta después de activarse
+          observer.disconnect();
         }
       },
-      { threshold: 0.3 } // 30% visible para activar
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {

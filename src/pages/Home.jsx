@@ -116,7 +116,6 @@ const Home = () => {
         </MotionText>
       </Flex>
 
-      {/* Flechas decorativas que se mueven hacia abajo */}
       <Flex
         direction="column"
         alignItems="center"
