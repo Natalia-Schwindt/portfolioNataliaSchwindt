@@ -1,8 +1,8 @@
 import { Box, Heading, Text, Link, Flex, Image } from "@chakra-ui/react";
 import theme from "../theme";
-import proyectoImg from "../assets/projects/proyectoFinalReact.png";
+import proyectoImg from "../assets/projects/EditorDeMemes.png";
 
-const ProjectProyectoFinalReact = () => {
+const ProjectEditorDeMemes = () => {
   return (
     <Box
       height="100vh"
@@ -44,7 +44,7 @@ const ProjectProyectoFinalReact = () => {
           mb={3}
           fontSize={["3xl", "4xl", "5xl"]}
         >
-          Ecommerce Proyecto Final React
+          Editor de Memes
         </Heading>
 
         <Text
@@ -53,11 +53,11 @@ const ProjectProyectoFinalReact = () => {
           mb={4}
           fontSize={["md", "lg", "xl"]}
         >
-          Aplicación de ecommerce desarrollada con React que simula la experiencia de compra de productos. Permite explorar una base de datos de artículos, aplicar filtros por precio, buscar por nombre, marcar favoritos y gestionar un carrito de compras interactivo. La app simula una compra final mediante una confirmación visual. Utiliza Firebase como backend simulado y está diseñada con Chakra UI para lograr una interfaz accesible y responsive. Incluye navegación dinámica con React Router, formularios optimizados con react-hook-form y animaciones suaves con framer-motion.
+          Editor de memes desarrollado de forma individual con HTML, CSS y JavaScript Vanilla. La aplicación permite personalizar imágenes agregando texto superior e inferior, con múltiples opciones de edición: fuente, tamaño, alineación, color, contorno, espaciado e interlineado. Incluye además herramientas para modificar la apariencia de la imagen mediante filtros (brillo, contraste, opacidad, desenfoque, entre otros) y una opción para descargar el meme final en formato de imagen. El proyecto se enfocó en la práctica de manipulación del DOM, estilos dinámicos y usabilidad en la edición visual.
         </Text>
         <Flex width="100%" justifyContent="flex-end" mt={2}>
           <Link
-            href="https://github.com/Natalia-Schwindt/proyectoFinalReact"
+            href="https://github.com/Natalia-Schwindt/editordememes"
             target="_blank"
             color="title.500"
             fontWeight="bold"
@@ -74,4 +74,4 @@ const ProjectProyectoFinalReact = () => {
   );
 };
 
-export default ProjectProyectoFinalReact;
+export default ProjectEditorDeMemes;

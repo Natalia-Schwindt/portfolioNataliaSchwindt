@@ -1,132 +1,265 @@
-import { Box, Heading, Text, Flex } from "@chakra-ui/react";
-import styled from "@emotion/styled";
-import { keyframes } from "@emotion/react";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { ChevronDownIcon } from '@chakra-ui/icons';
+// import { Box, Heading, Text, Flex } from "@chakra-ui/react";
+// import theme from "../theme";
 
-const MotionHeading = motion.create(Heading);
-const MotionText = motion.create(Text);
+// const Home = () => {
+//   return (
+//     <Box
+//       height="100vh"
+//       display="flex"
+//       flexDirection="column"
+//       alignItems="center"
+//       justifyContent="center"
+//       position="relative"
+//       pt={{ base: "60px", md: "80px" }}
+//       pb={{ base: "60px", md: "80px" }}
+//     >
+//       <Flex
+//         direction="column"
+//         alignItems="center"
+//         justifyContent="space-evenly"
+//         flexGrow={1}
+//         textAlign="center"
+//         width="100%"
+//         maxWidth="800px"
+//         px={{ base: 4, md: 8 }}
+//       >
+//         <Heading
+//           as="h1"
+//           fontSize={["6xl", "7xl", "8xl"]}
+//           color="title.500"
+//           mx={{ base: 4, md: 8 }}
+//         >
+//           Natalia Schwindt
+//         </Heading>
 
-const gradientAnimation = keyframes`
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-`;
+//         <Text
+//           fontSize={["2xl", "3xl"]}
+//           fontWeight="semibold"
+//           color="subtitle.500"
+//           mx={{ base: 6, md: 12 }}
+//           mb={2}
+//         >
+//           Desarrolladora FullStack
+//         </Text>
 
-const bounceAnimation = keyframes`
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-`;
+//         <Text
+//           fontSize={["lg", "xl", "2xl"]}
+//           fontWeight="medium"
+//           color="text.100"
+//           mx={{ base: 6, md: 12 }}
+//         >
+//           Transformo ideas en productos digitales eficientes y de alto impacto.
+//         </Text>
+//       </Flex>
+//     </Box>
+//   );
+// };
 
-const AnimatedGradientBox = styled(Box)`
-  background: linear-gradient(-45deg,
-    #001a18, /* background.900 de tu tema */
-    #003331, /* background.800 de tu tema */
-    #0a2725, /* background.700 de tu tema */
-    #143532, /* background.600 de tu tema */
-    #224643, /* background.500 de tu tema */
-    #3b5e5b  /* background.400 de tu tema */
-  );
-  background-size: 400% 400%;
-  animation: ${gradientAnimation} 10s ease infinite;
-`;
+// export default Home;
+import { useState } from "react";
+import {
+  Box,
+  Flex,
+  HStack,
+  Link,
+  IconButton,
+  useBreakpointValue,
+  Drawer,
+  DrawerBody,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  VStack,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import ReactCountryFlag from "react-country-flag";
+import theme from "../theme";
 
 const Home = () => {
-  const [hasMounted, setHasMounted] = useState(false);
+  // ----- Header -----
+  const navItems = [
+    { label: "Inicio", href: "#home" },
+    { label: "Sobre mí", href: "#about-me" },
+    { label: "Skills", href: "#skills" },
+    { label: "Proyectos", href: "#projects" },
+    { label: "Contacto", href: "#contact" },
+  ];
 
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  const languageOptions = [
+    { countryCode: "ES", langCode: "es", title: "Spanish" },
+    { countryCode: "GB", langCode: "en", title: "English" },
+    { countryCode: "RU", langCode: "ru", title: "Russian" },
+  ];
 
-  const headingVariants = {
-    hidden: { x: -200, opacity: 0 },
-    visible: { x: 0, opacity: 1 },
-  };
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
-  const textVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
+  const handleChangeLanguage = (langCode) => {
+    console.log(`Intentando cambiar idioma a: ${langCode}`);
   };
 
   return (
-    <AnimatedGradientBox
-      height="100vh"
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="space-between"
-      position="relative"
-      pt="20"
-      pb="20"
-    >
-      <Flex
-        direction="column"
-        alignItems="center"
-        justifyContent="space-evenly"
-        flexGrow={1}
-        textAlign="center"
-        width="100%"
-        px={{ base: 4, md: 8 }}
-      >
-        <MotionHeading
-          as="h1"
-          fontSize={["6xl", "7xl", "8xl", "8xl"]}
-          color="title.500"
-          mx={{ base: 4, md: 8 }}
-          variants={headingVariants}
-          initial="hidden"
-          animate={hasMounted ? "visible" : "hidden"}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          Natalia Schwindt
-        </MotionHeading>
-
-        <MotionText
-          fontSize={["xl", "2xl", "3xl", "4xl"]}
-          fontWeight="semibold"
-          color="subtitle.500"
-          mx={{ base: 6, md: 12 }}
-          variants={textVariants}
-          initial="hidden"
-          animate={hasMounted ? "visible" : "hidden"}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          Desarrolladora FullStack con React y Java
-        </MotionText>
-
-        <MotionText
-          fontSize={["lg", "xl", "2xl", "3xl"]}
-          fontWeight="medium"
-          color="text.100"
-          mx={{ base: 6, md: 12 }}
-          variants={textVariants}
-          initial="hidden"
-          animate={hasMounted ? "visible" : "hidden"}
-          transition={{ duration: 0.8, delay: 1.5 }}
-        >
-          Construyendo experiencias digitales sólidas y eficientes.
-        </MotionText>
-      </Flex>
-
-      <Flex
-        direction="column"
-        alignItems="center"
+    <Box height="100vh" position="relative">
+      {/* Header */}
+      <Box
+        as="header"
+        height="60px"
+        p={4}
+        px={{ base: 4, md: 8, lg: 12 }}
+        bg={theme.colors.background[900]}
         position="absolute"
-        bottom="0"
-        animation={`${bounceAnimation} 2s infinite`}
+        top="0"
+        left="0"
+        right="0"
+        zIndex="1000"
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
       >
-        <ChevronDownIcon w={10} h={10} color="text.100" />
-        <ChevronDownIcon w={10} h={10} color="text.100" mt="-6" />
-      </Flex>
-    </AnimatedGradientBox>
+        <Flex alignItems="center">
+          {isMobile ? (
+            <IconButton
+              icon={<HamburgerIcon w={6} h={6} />}
+              aria-label="Open Menu"
+              onClick={() => setIsDrawerOpen(true)}
+              bg="transparent"
+              color={theme.colors.subtitle[500]}
+              _hover={{ bg: "transparent", opacity: 0.8 }}
+              _active={{ bg: "transparent" }}
+              mr={2}
+            />
+          ) : (
+            <HStack spacing={8}>
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  color={theme.colors.subtitle[500]}
+                  fontSize="lg"
+                  fontWeight="medium"
+                  _hover={{
+                    textDecoration: "underline",
+                    color: theme.colors.title[500],
+                  }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </HStack>
+          )}
+        </Flex>
+
+        <HStack spacing={1}>
+          {languageOptions.map((lang) => (
+            <Link
+              key={lang.langCode}
+              onClick={() => handleChangeLanguage(lang.langCode)}
+              cursor="pointer"
+              px={1}
+              py={1}
+              _hover={{ opacity: 0.7 }}
+            >
+              <ReactCountryFlag
+                countryCode={lang.countryCode}
+                svg
+                style={{ width: "1.2em", height: "1.2em", borderRadius: "4px" }}
+                title={lang.title}
+              />
+            </Link>
+          ))}
+        </HStack>
+
+        <Drawer
+          placement="top"
+          mx="0"
+          onClose={() => setIsDrawerOpen(false)}
+          isOpen={isDrawerOpen}
+        >
+          <DrawerOverlay />
+          <DrawerContent
+            bg={theme.colors.background[900]}
+            color={theme.colors.text[100]}
+            height="auto"
+            width="50vw"
+            borderBottomRadius="md"
+          >
+            <DrawerCloseButton color={theme.colors.subtitle[500]} mt={2} left={2} />
+            <DrawerBody py={6}>
+              <VStack spacing={1} alignItems="center">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    fontSize="l"
+                    fontWeight="bold"
+                    color={theme.colors.subtitle[500]}
+                    onClick={() => setIsDrawerOpen(false)}
+                    _hover={{
+                      textDecoration: "underline",
+                      color: theme.colors.title[500],
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </VStack>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
+      </Box>
+
+      {/* Home Content */}
+      <Box
+        height="100%"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        pt={{ base: "60px", md: "80px" }}
+        pb={{ base: "60px", md: "80px" }}
+      >
+        <Flex
+          direction="column"
+          alignItems="center"
+          justifyContent="space-evenly"
+          flexGrow={1}
+          textAlign="center"
+          width="100%"
+          maxWidth="800px"
+          px={{ base: 4, md: 8 }}
+        >
+          <Heading
+            as="h1"
+            fontSize={["6xl", "7xl", "8xl"]}
+            color="title.500"
+            mx={{ base: 4, md: 8 }}
+          >
+            Natalia Schwindt
+          </Heading>
+
+          <Text
+            fontSize={["2xl", "3xl"]}
+            fontWeight="semibold"
+            color="subtitle.500"
+            mx={{ base: 6, md: 12 }}
+            mb={2}
+          >
+            Desarrolladora FullStack
+          </Text>
+
+          <Text
+            fontSize={["lg", "xl", "2xl"]}
+            fontWeight="medium"
+            color="text.100"
+            mx={{ base: 6, md: 12 }}
+          >
+            Transformo ideas en productos digitales eficientes y de alto impacto.
+          </Text>
+        </Flex>
+      </Box>
+    </Box>
   );
 };
 

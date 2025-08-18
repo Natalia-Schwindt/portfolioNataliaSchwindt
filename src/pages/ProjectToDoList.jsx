@@ -1,8 +1,8 @@
 import { Box, Heading, Text, Link, Flex, Image } from "@chakra-ui/react";
 import theme from "../theme";
-import proyectoImg from "../assets/projects/proyectoFinalReact.png";
+import proyectoImg from "../assets/projects/ToDoList.png";
 
-const ProjectProyectoFinalReact = () => {
+const ProjectToDoList = () => {
   return (
     <Box
       height="100vh"
@@ -44,7 +44,7 @@ const ProjectProyectoFinalReact = () => {
           mb={3}
           fontSize={["3xl", "4xl", "5xl"]}
         >
-          Ecommerce Proyecto Final React
+          ToDo List
         </Heading>
 
         <Text
@@ -53,11 +53,11 @@ const ProjectProyectoFinalReact = () => {
           mb={4}
           fontSize={["md", "lg", "xl"]}
         >
-          Aplicación de ecommerce desarrollada con React que simula la experiencia de compra de productos. Permite explorar una base de datos de artículos, aplicar filtros por precio, buscar por nombre, marcar favoritos y gestionar un carrito de compras interactivo. La app simula una compra final mediante una confirmación visual. Utiliza Firebase como backend simulado y está diseñada con Chakra UI para lograr una interfaz accesible y responsive. Incluye navegación dinámica con React Router, formularios optimizados con react-hook-form y animaciones suaves con framer-motion.
+          Aplicación desarrollada como proyecto final del Módulo V de ADA ITW. Permite crear y gestionar listas de tareas de forma dinámica, intuitiva y completamente responsiva. El usuario puede añadir tareas, editarlas, filtrarlas por estado (pendientes o realizadas), y eliminarlas según necesidad. El diseño se realizó con React y Chakra UI, asegurando una experiencia de uso fluida desde cualquier dispositivo. Es una herramienta práctica pensada para mejorar la organización personal o laboral. El proyecto utiliza Vite para un entorno de desarrollo rápido y eficiente.
         </Text>
         <Flex width="100%" justifyContent="flex-end" mt={2}>
           <Link
-            href="https://github.com/Natalia-Schwindt/proyectoFinalReact"
+            href="https://github.com/Natalia-Schwindt/todolist"
             target="_blank"
             color="title.500"
             fontWeight="bold"
@@ -74,4 +74,4 @@ const ProjectProyectoFinalReact = () => {
   );
 };
 
-export default ProjectProyectoFinalReact;
+export default ProjectToDoList;

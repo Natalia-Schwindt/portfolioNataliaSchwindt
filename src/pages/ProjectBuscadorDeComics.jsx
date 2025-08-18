@@ -1,8 +1,8 @@
 import { Box, Heading, Text, Link, Flex, Image } from "@chakra-ui/react";
 import theme from "../theme";
-import proyectoImg from "../assets/projects/proyectoFinalReact.png";
+import proyectoImg from "../assets/projects/BuscadorDeComics.png";
 
-const ProjectProyectoFinalReact = () => {
+const ProjectBuscadorDeComics = () => {
   return (
     <Box
       height="100vh"
@@ -44,7 +44,7 @@ const ProjectProyectoFinalReact = () => {
           mb={3}
           fontSize={["3xl", "4xl", "5xl"]}
         >
-          Ecommerce Proyecto Final React
+          Buscador de Comics
         </Heading>
 
         <Text
@@ -53,11 +53,11 @@ const ProjectProyectoFinalReact = () => {
           mb={4}
           fontSize={["md", "lg", "xl"]}
         >
-          Aplicación de ecommerce desarrollada con React que simula la experiencia de compra de productos. Permite explorar una base de datos de artículos, aplicar filtros por precio, buscar por nombre, marcar favoritos y gestionar un carrito de compras interactivo. La app simula una compra final mediante una confirmación visual. Utiliza Firebase como backend simulado y está diseñada con Chakra UI para lograr una interfaz accesible y responsive. Incluye navegación dinámica con React Router, formularios optimizados con react-hook-form y animaciones suaves con framer-motion.
+          Aplicación web que permite buscar, filtrar y ordenar cómics y personajes de Marvel usando su API oficial. Cuenta con paginación y muestra resultados en tarjetas responsivas con imágenes y detalles básicos. Desarrollada con HTML, Tailwind CSS y JavaScript puro.
         </Text>
         <Flex width="100%" justifyContent="flex-end" mt={2}>
           <Link
-            href="https://github.com/Natalia-Schwindt/proyectoFinalReact"
+            href="https://github.com/Natalia-Schwindt/buscadorDeComics"
             target="_blank"
             color="title.500"
             fontWeight="bold"
@@ -74,4 +74,4 @@ const ProjectProyectoFinalReact = () => {
   );
 };
 
-export default ProjectProyectoFinalReact;
+export default ProjectBuscadorDeComics;

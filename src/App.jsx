@@ -1,162 +1,122 @@
-import { Box, ChakraProvider, HStack, Flex, Link as ChakraLink } from "@chakra-ui/react";
+// import { Box, ChakraProvider } from "@chakra-ui/react";
+// import theme from "./theme";
+// import Header from "./components/Header";
+// import Home from "./pages/Home";
+// import Presentation from "./pages/Presentation";
+// import SkillsTech from "./pages/SkillsTech.jsx";
+// import SkillsToolsAndSoft from "./pages/SkillsToolsAndSoft.jsx";
+// import ProjectAhorrADAs from "./pages/ProjectAhorrADAs.jsx";
+// import ProjectBuscadorDeComics from "./pages/ProjectBuscadorDeComics.jsx";
+// import ProjectEditorDeMemes from "./pages/ProjectEditorDeMemes.jsx";
+// import ProjectProyectoFinalReact from "./pages/ProjectProyectoFinalReact.jsx";
+// import ProjectProyectoQR from "./pages/ProjectProyectoQR.jsx";
+// import ProjectToDoList from "./pages/ProjectToDoList.jsx";
+// import Footer from "./components/Footer";
+
+// function App() {
+//   return (
+//     <ChakraProvider theme={theme}>
+//       <Box minH="100vh" bg={theme.colors.background[900]}>
+//         <Header />
+//         <Home />
+//         <Presentation />
+//         <SkillsTech />
+//         <SkillsToolsAndSoft />
+//         <ProjectAhorrADAs />
+//         <ProjectBuscadorDeComics />
+//         <ProjectEditorDeMemes />
+//         <ProjectProyectoFinalReact />
+//         <ProjectProyectoQR />
+//         <ProjectToDoList />
+//         <Footer />
+//       </Box>
+//     </ChakraProvider>
+//   );
+// }
+
+// export default App;
+import { useRef, useEffect, useState } from "react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
+
 import Home from "./pages/Home";
 import Presentation from "./pages/Presentation";
-import ProjectProyectoFinalReact from "./pages/ProjectProyectoFinalReact.jsx"
-
-import ReactCountryFlag from "react-country-flag";
-import { useEffect, useState, useRef, useCallback } from "react";
+import SkillsTech from "./pages/SkillsTech.jsx";
+import SkillsToolsAndSoft from "./pages/SkillsToolsAndSoft.jsx";
+import ProjectAhorrADAs from "./pages/ProjectAhorrADAs.jsx";
+import ProjectBuscadorDeComics from "./pages/ProjectBuscadorDeComics.jsx";
+import ProjectEditorDeMemes from "./pages/ProjectEditorDeMemes.jsx";
+import ProjectProyectoFinalReact from "./pages/ProjectProyectoFinalReact.jsx";
+import ProjectProyectoQR from "./pages/ProjectProyectoQR.jsx";
+import ProjectToDoList from "./pages/ProjectToDoList.jsx";
+import Footer from "./components/Footer";
 
 function App() {
-  const languageOptions = [
-    { countryCode: "ES", langCode: "es", title: "Spanish" },
-    { countryCode: "GB", langCode: "en", title: "English" },
-    { countryCode: "RU", langCode: "ru", title: "Russian" },
-  ];
-
-  const handleChangeLanguage = (langCode) => {
-    console.log(`Attempting to change language to: ${langCode}`);
-  };
-
-  const sectionRefs = useRef([]);
-  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
-  const [isScrolling, setIsScrolling] = useState(false);
-  const scrollDuration = 800;
+  const sectionsRef = useRef([]);
+  const [currentSection, setCurrentSection] = useState(0);
+  const isScrolling = useRef(false);
 
   const sections = [
-    { key: "home", content: <Home /> },
-    { key: "presentation", content: <Presentation /> },
-    { key: "skills", content: ( 
-      <Box
-        height="100vh"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        bg="background.700"
-        color="text.100"
-      >
-        <h1 style={{ fontSize: '3rem', textAlign: 'center' }}>Sección Skills Placeholder</h1>
-      </Box>
-    )},
-    { key: "projects", content: <ProjectProyectoFinalReact /> },
-    { key: "footer", content: (
-      <Box
-        height="60px"
-        bg="background.900"
-        color="text.100"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <h2 style={{ color: theme.colors.text[100], fontSize: '1.5rem' }}>Footer Placeholder</h2>
-      </Box>
-    )}
+    <Home />,
+    <Presentation />,
+    <SkillsTech />,
+    <SkillsToolsAndSoft />,
+    <ProjectAhorrADAs />,
+    <ProjectBuscadorDeComics />,
+    <ProjectEditorDeMemes />,
+    <ProjectProyectoFinalReact />,
+    <ProjectProyectoQR />,
+    <ProjectToDoList />,
+    <Footer />,
   ];
 
-  const setSectionRef = useCallback((node, index) => {
-    if (node) sectionRefs.current[index] = node;
-  }, []);
-
-  const scrollToSection = useCallback((index) => {
-    if (sectionRefs.current[index] && sectionRefs.current[index].scrollIntoView) {
-      setIsScrolling(true);
-      sectionRefs.current[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      setCurrentSectionIndex(index);
-
-      document.body.style.overflow = 'hidden';
-
+  const scrollToSection = (index) => {
+    if (sectionsRef.current[index]) {
+      isScrolling.current = true;
+      sectionsRef.current[index].scrollIntoView({ behavior: "smooth" });
+      setCurrentSection(index);
       setTimeout(() => {
-        setIsScrolling(false);
-        document.body.style.overflow = '';
-        console.log(`Scroll animation to section ${index} finished.`);
-      }, scrollDuration);
-    } else {
-      console.warn(`Section ref at index ${index} is not available for scroll.`);
-      setIsScrolling(false);
-      document.body.style.overflow = '';
+        isScrolling.current = false;
+      }, 800);
     }
-  }, [scrollDuration]);
+  };
+
+  const handleWheel = (e) => {
+    if (isScrolling.current) return;
+
+    if (e.deltaY > 0 && currentSection < sections.length - 1) {
+      scrollToSection(currentSection + 1);
+    } else if (e.deltaY < 0 && currentSection > 0) {
+      scrollToSection(currentSection - 1);
+    }
+  };
 
   useEffect(() => {
-    const handleWheel = (event) => {
-      if (isScrolling) {
-        event.preventDefault();
-        return;
-      }
+    window.addEventListener("wheel", handleWheel, { passive: true });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, [currentSection]);
 
-      const direction = event.deltaY > 0 ? 1 : -1;
-      let nextIndex = currentSectionIndex + direction;
-
-      if (nextIndex < 0) nextIndex = 0;
-      if (nextIndex >= sections.length) nextIndex = sections.length - 1;
-
-      if (nextIndex !== currentSectionIndex) {
-        scrollToSection(nextIndex);
-      } else {
-        document.body.style.overflow = '';
-      }
-      event.preventDefault();
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: false });
-
+  useEffect(() => {
+    // Ocultar scroll de la ventana
+    document.body.style.overflow = "hidden";
     return () => {
-      window.removeEventListener('wheel', handleWheel);
+      document.body.style.overflow = "auto";
     };
-  }, [currentSectionIndex, isScrolling, scrollToSection, sections.length]);
+  }, []);
 
   return (
     <ChakraProvider theme={theme}>
-      <Box minH="100vh" position="relative">
-
-        <Box
-          as="header"
-          height="60px"
-          p={4}
-          pl={{ base: 4, md: 8, lg: 12 }}
-          pr={{ base: 4, md: 8, lg: 12 }}
-          bg="transparent"
-          position="absolute"
-          top="0"
-          left="0"
-          right="0"
-          zIndex="1000"
-          display="flex"
-          alignItems="center"
-          justifyContent="flex-end"
-        >
-          <HStack spacing={1}>
-            {languageOptions.map((lang) => (
-              <ChakraLink
-                key={lang.langCode}
-                onClick={() => handleChangeLanguage(lang.langCode)}
-                cursor="pointer"
-                px={1}
-                py={1}
-                _hover={{ opacity: 0.7 }}
-              >
-                <ReactCountryFlag
-                  countryCode={lang.countryCode}
-                  svg
-                  style={{ width: "1.1em", height: "1.1em", borderRadius: "4px" }}
-                  title={lang.title}
-                />
-              </ChakraLink>
-            ))}
-          </HStack>
-        </Box>
-
-        {sections.map((section, index) => (
+      <Box minH="100vh" overflow="hidden" bg={theme.colors.background[900]}>
+        {/* Secciones scrollables */}
+        {sections.map((SectionComponent, index) => (
           <Box
-            key={section.key}
-            ref={node => setSectionRef(node, index)}
-            height={section.key === 'footer' ? '60px' : '100vh'}
+            key={index}
+            ref={(el) => (sectionsRef.current[index] = el)}
+            h="100vh"
           >
-            {section.content}
+            {SectionComponent}
           </Box>
         ))}
-
       </Box>
     </ChakraProvider>
   );
