@@ -1,8 +1,5 @@
-// src/pages/SkillsToolsAndSoft.jsx
 import { Box, Heading, Text, Flex, VStack, HStack, Icon } from "@chakra-ui/react";
 import theme from "../theme";
-
-// Importa los íconos necesarios de react-icons
 import { SiGit, SiGithub, SiVite, SiPostman, SiNodedotjs } from "react-icons/si";
 
 const SkillsToolsAndSoft = () => {
@@ -28,24 +25,23 @@ const SkillsToolsAndSoft = () => {
 
   return (
     <Box
-      height="100vh" // Ocupa toda la altura de la vista
+      height="100vh"
       display="flex"
       flexDirection="column"
       alignItems="center"
-      justifyContent="center" // Centra el contenido verticalmente
+      justifyContent="center"
       px={{ base: 4, md: 8 }}
-      py={{ base: 6, md: 8 }} // Padding vertical para los bordes
-      backgroundColor={theme.colors.background[900]} // Fondo oscuro explícito
-      color={theme.colors.text[100]} // Color de texto
+      py={{ base: 6, md: 8 }}
+      backgroundColor={theme.colors.background[900]}
+      color={theme.colors.text[100]}
     >
       <VStack 
         spacing={{ base: 8, md: 12 }} 
         maxWidth="1200px" 
         width="100%"
-        flexGrow={1} // ¡CLAVE!: Permite a VStack ocupar todo el espacio disponible
-        justifyContent="space-evenly" // ¡CLAVE!: Distribuye las dos secciones (Herramientas/Soft Skills) uniformemente
+        flexGrow={1}
+        justifyContent="space-evenly"
       >
-        {/* Sección de Herramientas */}
         <Flex direction="column" alignItems="center" width="100%">
           <Heading as="h2" fontSize={["4xl", "5xl", "6xl"]} color="title.500" mb={{ base: 6, md: 8 }}>
             Herramientas
@@ -60,7 +56,6 @@ const SkillsToolsAndSoft = () => {
           </HStack>
         </Flex>
 
-        {/* Sección de Soft Skills */}
         <Flex direction="column" alignItems="center" width="100%">
           <Heading as="h2" fontSize={["4xl", "5xl", "6xl"]} color="title.500" mb={{ base: 6, md: 8 }}>
             Soft Skills

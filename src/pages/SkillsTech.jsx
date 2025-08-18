@@ -1,9 +1,27 @@
-// src/pages/SkillsTech.jsx
-import { Box, Heading, Text, Flex, VStack, HStack, Icon } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  Flex,
+  VStack,
+  HStack,
+  Icon,
+} from "@chakra-ui/react";
 import theme from "../theme";
-
-// Importa los íconos necesarios de react-icons
-import { SiHtml5, SiCss3, SiSass, SiJavascript, SiTypescript, SiReact, SiAngular, SiChakraui, SiTailwindcss, SiSpringboot, SiFirebase, SiMysql } from "react-icons/si";
+import {
+  SiHtml5,
+  SiCss3,
+  SiSass,
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiAngular,
+  SiChakraui,
+  SiTailwindcss,
+  SiSpringboot,
+  SiFirebase,
+  SiMysql,
+} from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
 const SkillsTech = () => {
@@ -28,48 +46,94 @@ const SkillsTech = () => {
 
   return (
     <Box
-      height="100vh" // Ocupa toda la altura de la vista
+      height="100vh"
       display="flex"
       flexDirection="column"
       alignItems="center"
-      justifyContent="center" // Centra el contenido verticalmente en la página
+      justifyContent="center"
       px={{ base: 4, md: 8 }}
-      py={{ base: 6, md: 8 }} // Padding vertical para asegurar espacio en los bordes
-      backgroundColor={theme.colors.background[900]} // Fondo oscuro explícito
-      color={theme.colors.text[100]} // Color de texto
+      py={{ base: 6, md: 8 }}
+      backgroundColor={theme.colors.background[900]}
+      color={theme.colors.text[100]}
     >
-      <VStack 
-        spacing={{ base: 8, md: 12 }} 
-        maxWidth="1200px" 
+      <VStack
+        spacing={{ base: 8, md: 12 }}
+        maxWidth="1200px"
         width="100%"
-        flexGrow={1} // ¡CLAVE!: Permite a VStack ocupar todo el espacio disponible
-        justifyContent="space-evenly" // ¡CLAVE!: Distribuye las dos secciones (Frontend/Backend) uniformemente
+        flexGrow={1}
+        justifyContent="space-evenly"
       >
-        {/* Sección de Frontend */}
         <Flex direction="column" alignItems="center" width="100%">
-          <Heading as="h2" fontSize={["4xl", "5xl", "6xl"]} color="title.500" mb={{ base: 6, md: 8 }}>
+          <Heading
+            as="h2"
+            fontSize={["4xl", "5xl", "6xl"]}
+            color="title.500"
+            mb={{ base: 6, md: 8 }}
+          >
             Frontend
           </Heading>
-          <HStack spacing={{ base: 4, md: 6 }} wrap="wrap" justifyContent="center">
+          <HStack
+            spacing={{ base: 4, md: 6 }}
+            wrap="wrap"
+            justifyContent="center"
+          >
             {frontendSkills.map((skill, index) => (
-              <Box key={index} textAlign="center" p={{ base: 2, md: 3 }} borderRadius="md" bg="background.700" boxShadow="md">
-                <Icon as={skill.icon} w={["2.2em", "2.8em"]} h={["2.2em", "2.8em"]} color={skill.color} mb={1} />
-                <Text fontSize={["sm", "md"]} fontWeight="medium">{skill.name}</Text>
+              <Box
+                key={index}
+                textAlign="center"
+                p={{ base: 2, md: 3 }}
+                borderRadius="md"
+                bg="background.700"
+                boxShadow="md"
+              >
+                <Icon
+                  as={skill.icon}
+                  w={["2.2em", "2.8em"]}
+                  h={["2.2em", "2.8em"]}
+                  color={skill.color}
+                  mb={1}
+                />
+                <Text fontSize={["sm", "md"]} fontWeight="medium">
+                  {skill.name}
+                </Text>
               </Box>
             ))}
           </HStack>
         </Flex>
 
-        {/* Sección de Backend */}
         <Flex direction="column" alignItems="center" width="100%">
-          <Heading as="h2" fontSize={["4xl", "5xl", "6xl"]} color="title.500" mb={{ base: 6, md: 8 }}>
+          <Heading
+            as="h2"
+            fontSize={["4xl", "5xl", "6xl"]}
+            color="title.500"
+            mb={{ base: 6, md: 8 }}
+          >
             Backend
           </Heading>
-          <HStack spacing={{ base: 4, md: 6 }} wrap="wrap" justifyContent="center">
+          <HStack
+            spacing={{ base: 4, md: 6 }}
+            wrap="wrap"
+            justifyContent="center"
+          >
             {backendSkills.map((skill, index) => (
-              <Box key={index} textAlign="center" p={{ base: 2, md: 3 }} borderRadius="md" bg="background.700" boxShadow="md">
-                <Icon as={skill.icon} w={["2.2em", "2.8em"]} h={["2.2em", "2.8em"]} color={skill.color} mb={1} />
-                <Text fontSize={["sm", "md"]} fontWeight="medium">{skill.name}</Text>
+              <Box
+                key={index}
+                textAlign="center"
+                p={{ base: 2, md: 3 }}
+                borderRadius="md"
+                bg="background.700"
+                boxShadow="md"
+              >
+                <Icon
+                  as={skill.icon}
+                  w={["2.2em", "2.8em"]}
+                  h={["2.2em", "2.8em"]}
+                  color={skill.color}
+                  mb={1}
+                />
+                <Text fontSize={["sm", "md"]} fontWeight="medium">
+                  {skill.name}
+                </Text>
               </Box>
             ))}
           </HStack>

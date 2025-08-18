@@ -1,61 +1,3 @@
-// import { Box, Heading, Text, Flex } from "@chakra-ui/react";
-// import theme from "../theme";
-
-// const Home = () => {
-//   return (
-//     <Box
-//       height="100vh"
-//       display="flex"
-//       flexDirection="column"
-//       alignItems="center"
-//       justifyContent="center"
-//       position="relative"
-//       pt={{ base: "60px", md: "80px" }}
-//       pb={{ base: "60px", md: "80px" }}
-//     >
-//       <Flex
-//         direction="column"
-//         alignItems="center"
-//         justifyContent="space-evenly"
-//         flexGrow={1}
-//         textAlign="center"
-//         width="100%"
-//         maxWidth="800px"
-//         px={{ base: 4, md: 8 }}
-//       >
-//         <Heading
-//           as="h1"
-//           fontSize={["6xl", "7xl", "8xl"]}
-//           color="title.500"
-//           mx={{ base: 4, md: 8 }}
-//         >
-//           Natalia Schwindt
-//         </Heading>
-
-//         <Text
-//           fontSize={["2xl", "3xl"]}
-//           fontWeight="semibold"
-//           color="subtitle.500"
-//           mx={{ base: 6, md: 12 }}
-//           mb={2}
-//         >
-//           Desarrolladora FullStack
-//         </Text>
-
-//         <Text
-//           fontSize={["lg", "xl", "2xl"]}
-//           fontWeight="medium"
-//           color="text.100"
-//           mx={{ base: 6, md: 12 }}
-//         >
-//           Transformo ideas en productos digitales eficientes y de alto impacto.
-//         </Text>
-//       </Flex>
-//     </Box>
-//   );
-// };
-
-// export default Home;
 import { useState } from "react";
 import {
   Box,
@@ -78,7 +20,6 @@ import ReactCountryFlag from "react-country-flag";
 import theme from "../theme";
 
 const Home = () => {
-  // ----- Header -----
   const navItems = [
     { label: "Inicio", href: "#home" },
     { label: "Sobre mí", href: "#about-me" },
@@ -102,7 +43,6 @@ const Home = () => {
 
   return (
     <Box height="100vh" position="relative">
-      {/* Header */}
       <Box
         as="header"
         height="60px"
@@ -210,7 +150,6 @@ const Home = () => {
         </Drawer>
       </Box>
 
-      {/* Home Content */}
       <Box
         height="100%"
         display="flex"
