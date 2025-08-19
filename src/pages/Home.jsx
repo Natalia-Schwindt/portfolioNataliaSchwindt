@@ -19,15 +19,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import ReactCountryFlag from "react-country-flag";
 import theme from "../theme";
 
-const Home = () => {
-  const navItems = [
-    { label: "Inicio", href: "#home" },
-    { label: "Sobre mí", href: "#about-me" },
-    { label: "Skills", href: "#skills" },
-    { label: "Proyectos", href: "#projects" },
-    { label: "Contacto", href: "#contact" },
-  ];
-
+const Home = ({ scrollToSection, navItems }) => {
   const languageOptions = [
     { countryCode: "ES", langCode: "es", title: "Spanish" },
     { countryCode: "GB", langCode: "en", title: "English" },
@@ -42,7 +34,7 @@ const Home = () => {
   };
 
   return (
-    <Box height="100vh" position="relative">
+    <Box id="home" height="100vh" position="relative">
       <Box
         as="header"
         height="60px"
@@ -73,9 +65,13 @@ const Home = () => {
           ) : (
             <HStack spacing={8}>
               {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
+                <Text
+                  key={`desktop-${item.name}`}
+                  as="span"
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => scrollToSection(item.name)}
+                  cursor="pointer"
                   color={theme.colors.subtitle[500]}
                   fontSize="lg"
                   fontWeight="medium"
@@ -85,7 +81,7 @@ const Home = () => {
                   }}
                 >
                   {item.label}
-                </Link>
+                </Text>
               ))}
             </HStack>
           )}
@@ -125,24 +121,34 @@ const Home = () => {
             width="50vw"
             borderBottomRadius="md"
           >
-            <DrawerCloseButton color={theme.colors.subtitle[500]} mt={2} left={2} />
+            <DrawerCloseButton
+              color={theme.colors.subtitle[500]}
+              mt={2}
+              left={2}
+            />
             <DrawerBody py={6}>
               <VStack spacing={1} alignItems="center">
                 {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    fontSize="l"
+                  <Text
+                    key={`drawer-${item.name}`}
+                    as="span"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => {
+                      setIsDrawerOpen(false);
+                      setTimeout(() => scrollToSection(item.name), 250);
+                    }}
+                    fontSize="lg"
                     fontWeight="bold"
                     color={theme.colors.subtitle[500]}
-                    onClick={() => setIsDrawerOpen(false)}
+                    cursor="pointer"
                     _hover={{
                       textDecoration: "underline",
                       color: theme.colors.title[500],
                     }}
                   >
                     {item.label}
-                  </Link>
+                  </Text>
                 ))}
               </VStack>
             </DrawerBody>
@@ -194,7 +200,8 @@ const Home = () => {
             color="text.100"
             mx={{ base: 6, md: 12 }}
           >
-            Transformo ideas en productos digitales eficientes y de alto impacto.
+            Transformo ideas en productos digitales eficientes y de alto
+            impacto.
           </Text>
         </Flex>
       </Box>

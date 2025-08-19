@@ -1,10 +1,10 @@
 import { Box, Heading, Text, Link, Flex, Image } from "@chakra-ui/react";
-import theme from "../theme";
 import proyectoImg from "../assets/projects/AhorrADAs.png";
 
 const ProjectAhorrADAs = () => {
   return (
     <Box
+      id="projects"
       height="100vh"
       display="flex"
       flexDirection="column"

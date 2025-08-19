@@ -1,5 +1,4 @@
 import { Box, Heading, Text, Flex } from "@chakra-ui/react";
-import theme from "../theme";
 
 const Presentation = () => {
   const presentationContent = [

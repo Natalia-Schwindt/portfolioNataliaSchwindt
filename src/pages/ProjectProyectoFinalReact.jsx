@@ -1,5 +1,4 @@
 import { Box, Heading, Text, Link, Flex, Image } from "@chakra-ui/react";
-import theme from "../theme";
 import proyectoImg from "../assets/projects/proyectoFinalReact.png";
 
 const ProjectProyectoFinalReact = () => {

@@ -46,6 +46,7 @@ const SkillsTech = () => {
 
   return (
     <Box
+      id="skills"
       height="100vh"
       display="flex"
       flexDirection="column"
