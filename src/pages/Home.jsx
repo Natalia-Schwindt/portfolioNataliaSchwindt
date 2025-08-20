@@ -22,8 +22,8 @@ import theme from "../theme";
 const Home = ({ scrollToSection, navItems }) => {
   const languageOptions = [
     { countryCode: "ES", langCode: "es", title: "Spanish" },
-    { countryCode: "GB", langCode: "en", title: "English" },
     { countryCode: "RU", langCode: "ru", title: "Russian" },
+    { countryCode: "GB", langCode: "en", title: "English" },
   ];
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

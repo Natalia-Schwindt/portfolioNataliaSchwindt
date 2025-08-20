@@ -197,7 +197,7 @@ const Footer = () => {
             Inicio
           </Link>
           <Link
-            href="#about-me"
+            href="#presentation"
             _hover={{ textDecoration: "underline", color: "title.500" }}
           >
             Sobre mí
