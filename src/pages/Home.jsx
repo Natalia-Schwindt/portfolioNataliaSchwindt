@@ -13,11 +13,10 @@ import {
   DrawerCloseButton,
   VStack,
   Heading,
-  Text,
+  Text
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import ReactCountryFlag from "react-country-flag";
-import theme from "../theme";
 
 const Home = ({ scrollToSection, navItems }) => {
   const languageOptions = [
@@ -40,7 +39,7 @@ const Home = ({ scrollToSection, navItems }) => {
         height="60px"
         p={4}
         px={{ base: 4, md: 8, lg: 12 }}
-        bg={theme.colors.background[900]}
+        bg="bg.header"
         position="absolute"
         top="0"
         left="0"
@@ -57,7 +56,7 @@ const Home = ({ scrollToSection, navItems }) => {
               aria-label="Open Menu"
               onClick={() => setIsDrawerOpen(true)}
               bg="transparent"
-              color={theme.colors.subtitle[500]}
+              color="text.secondary"
               _hover={{ bg: "transparent", opacity: 0.8 }}
               _active={{ bg: "transparent" }}
               mr={2}
@@ -72,12 +71,12 @@ const Home = ({ scrollToSection, navItems }) => {
                   tabIndex={0}
                   onClick={() => scrollToSection(item.name)}
                   cursor="pointer"
-                  color={theme.colors.subtitle[500]}
+                  color="text.secondary"
                   fontSize="lg"
                   fontWeight="medium"
                   _hover={{
                     textDecoration: "underline",
-                    color: theme.colors.title[500],
+                    color: "text.primary",
                   }}
                 >
                   {item.label}
@@ -87,7 +86,8 @@ const Home = ({ scrollToSection, navItems }) => {
           )}
         </Flex>
 
-        <HStack spacing={1}>
+        {/* Solo banderas de idioma */}
+        <HStack spacing={2} mr="15px">
           {languageOptions.map((lang) => (
             <Link
               key={lang.langCode}
@@ -115,14 +115,14 @@ const Home = ({ scrollToSection, navItems }) => {
         >
           <DrawerOverlay />
           <DrawerContent
-            bg={theme.colors.background[900]}
-            color={theme.colors.text[100]}
+            bg="bg.header"
+            color="text.primary"
             height="auto"
             width="50vw"
             borderBottomRadius="md"
           >
             <DrawerCloseButton
-              color={theme.colors.subtitle[500]}
+              color="text.secondary"
               mt={2}
               left={2}
             />
@@ -140,11 +140,11 @@ const Home = ({ scrollToSection, navItems }) => {
                     }}
                     fontSize="lg"
                     fontWeight="bold"
-                    color={theme.colors.subtitle[500]}
+                    color="text.secondary"
                     cursor="pointer"
                     _hover={{
                       textDecoration: "underline",
-                      color: theme.colors.title[500],
+                      color: "text.primary",
                     }}
                   >
                     {item.label}
@@ -178,7 +178,7 @@ const Home = ({ scrollToSection, navItems }) => {
           <Heading
             as="h1"
             fontSize={["6xl", "7xl", "8xl"]}
-            color="title.500"
+            color="text.primary"
             mx={{ base: 4, md: 8 }}
           >
             Natalia Schwindt
@@ -187,7 +187,7 @@ const Home = ({ scrollToSection, navItems }) => {
           <Text
             fontSize={["2xl", "3xl"]}
             fontWeight="semibold"
-            color="subtitle.500"
+            color="text.secondary"
             mx={{ base: 6, md: 12 }}
             mb={2}
           >
@@ -197,11 +197,10 @@ const Home = ({ scrollToSection, navItems }) => {
           <Text
             fontSize={["lg", "xl", "2xl"]}
             fontWeight="medium"
-            color="text.100"
+            color="text.primary"
             mx={{ base: 6, md: 12 }}
           >
-            Transformo ideas en productos digitales eficientes y de alto
-            impacto.
+            Transformo ideas en productos digitales eficientes y de alto impacto.
           </Text>
         </Flex>
       </Box>

@@ -52,7 +52,7 @@ const Presentation = () => {
             <Heading
               key={index}
               as="h2"
-              color="title.500"
+              color="text.primary"
               fontWeight="bold"
               fontSize={["3xl", "4xl", "5xl"]}
               mb={4}
@@ -63,7 +63,7 @@ const Presentation = () => {
             <Text
               key={index}
               as="p"
-              color="text.100"
+              color="text.secondary"
               fontWeight="normal"
               fontSize={["md", "lg", "xl"]}
               mb={2}

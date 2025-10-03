@@ -54,8 +54,7 @@ const SkillsTech = () => {
       justifyContent="center"
       px={{ base: 4, md: 8 }}
       py={{ base: 6, md: 8 }}
-      backgroundColor={theme.colors.background[900]}
-      color={theme.colors.text[100]}
+      color="text.secondary"
     >
       <VStack
         spacing={{ base: 8, md: 12 }}
@@ -68,7 +67,7 @@ const SkillsTech = () => {
           <Heading
             as="h2"
             fontSize={["4xl", "5xl", "6xl"]}
-            color="title.500"
+            color="text.primary"
             mb={{ base: 6, md: 8 }}
           >
             Frontend
@@ -84,7 +83,6 @@ const SkillsTech = () => {
                 textAlign="center"
                 p={{ base: 2, md: 3 }}
                 borderRadius="md"
-                bg="background.700"
                 boxShadow="md"
               >
                 <Icon
@@ -106,7 +104,7 @@ const SkillsTech = () => {
           <Heading
             as="h2"
             fontSize={["4xl", "5xl", "6xl"]}
-            color="title.500"
+            color="text.primary"
             mb={{ base: 6, md: 8 }}
           >
             Backend
@@ -122,7 +120,6 @@ const SkillsTech = () => {
                 textAlign="center"
                 p={{ base: 2, md: 3 }}
                 borderRadius="md"
-                bg="background.700"
                 boxShadow="md"
               >
                 <Icon

@@ -39,7 +39,7 @@ const ProjectToDoList = () => {
         </Box>
 
         <Heading
-          color="title.500"
+          color="text.primary"
           mb={3}
           fontSize={["3xl", "4xl", "5xl"]}
         >
@@ -47,7 +47,7 @@ const ProjectToDoList = () => {
         </Heading>
 
         <Text
-          color="text.100"
+          color="text.secondary"
           fontWeight="normal"
           mb={4}
           fontSize={["md", "lg", "xl"]}
@@ -58,7 +58,7 @@ const ProjectToDoList = () => {
           <Link
             href="https://github.com/Natalia-Schwindt/todolist"
             target="_blank"
-            color="title.500"
+            color="text.primary"
             fontWeight="bold"
           fontSize="md"
           mt={2}

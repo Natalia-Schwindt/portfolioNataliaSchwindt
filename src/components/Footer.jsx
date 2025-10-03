@@ -9,7 +9,6 @@ import {
   Textarea,
   Button,
 } from "@chakra-ui/react";
-import theme from "../theme";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
@@ -62,7 +61,7 @@ const Footer = () => {
       flexDirection="column"
       alignItems="center"
       justifyContent="space-around"
-      color={theme.colors.text[100]}
+      color="footer.text"
       py={{ base: 6, md: 8 }}
       px={{ base: 4, md: 8 }}
       textAlign="center"
@@ -75,7 +74,7 @@ const Footer = () => {
             color="title.500"
             textAlign="center"
           >
-            Ponte en Contacto ✉️
+            Ponte en Contacto
           </Text>
           <Text fontSize={["md", "lg"]} textAlign="center">
             ¡Me encantaría saber de ti! Puedes contactarme a través de mis redes
@@ -88,7 +87,7 @@ const Footer = () => {
           onSubmit={handleSubmit}
           width="100%"
           p={{ base: 4, md: 8 }}
-          bg="background.800"
+          bg="footer.bg"
           borderRadius="md"
           boxShadow="lg"
         >
@@ -96,10 +95,10 @@ const Footer = () => {
             <Input
               name="name"
               placeholder="Tu Nombre"
-              _placeholder={{ color: "text.200" }}
-              bg="background.700"
-              borderColor="background.600"
-              color="text.100"
+              _placeholder={{ color: "footer.placeholder" }}
+              bg="footer.inputBg"
+              borderColor="footer.inputBorder"
+              color="footer.text"
               focusBorderColor="title.500"
               size="lg"
             />
@@ -107,33 +106,33 @@ const Footer = () => {
               name="email"
               type="email"
               placeholder="Tu Correo Electrónico"
-              _placeholder={{ color: "text.200" }}
-              bg="background.700"
-              borderColor="background.600"
-              color="text.100"
+              _placeholder={{ color: "footer.placeholder" }}
+              bg="footer.inputBg"
+              borderColor="footer.inputBorder"
+              color="footer.text"
               focusBorderColor="title.500"
               size="lg"
             />
             <Textarea
               name="message"
               placeholder="Tu Mensaje"
-              _placeholder={{ color: "text.200" }}
-              bg="background.700"
-              borderColor="background.600"
-              color="text.100"
+              _placeholder={{ color: "footer.placeholder" }}
+              bg="footer.inputBg"
+              borderColor="footer.inputBorder"
+              color="footer.text"
               focusBorderColor="title.500"
               size="lg"
               rows={5}
             />
             <Button
               type="submit"
-              bg="title.500"
+              bg="footer.buttonBg"
               color="background.900"
               px={2}
               mt={2}
               width="auto"
               fontWeight="bold"
-              _hover={{ bg: "title.400" }}
+              _hover={{ bg: "footer.buttonHover" }}
             >
               Enviar
             </Button>
@@ -150,8 +149,8 @@ const Footer = () => {
               as={FaLinkedin}
               w={7}
               h={7}
-              color="text.100"
-              _hover={{ color: "title.500" }}
+              color="footer.icon"
+              _hover={{ color: "footer.iconHover" }}
             />
           </Link>
           <Link
@@ -163,20 +162,17 @@ const Footer = () => {
               as={FaGithub}
               w={7}
               h={7}
-              color="text.100"
-              _hover={{ color: "title.500" }}
+              color="footer.icon"
+              _hover={{ color: "footer.iconHover" }}
             />
           </Link>
-          <Link
-            href="mailto:naty8014@gmail.com"
-            aria-label="Correo Electrónico"
-          >
+          <Link href="mailto:naty8014@gmail.com" aria-label="Correo Electrónico">
             <Icon
               as={FaEnvelope}
               w={7}
               h={7}
-              color="text.100"
-              _hover={{ color: "title.500" }}
+              color="footer.icon"
+              _hover={{ color: "footer.iconHover" }}
             />
           </Link>
         </HStack>
@@ -216,7 +212,7 @@ const Footer = () => {
           </Link>
         </HStack>
 
-        <Text fontSize={["sm"]} color="text.200" fontWeight="bold">
+        <Text fontSize={["sm"]} color="footer.copy" fontWeight="bold">
           Creado por Natalia Schwindt © {currentYear}. Todos los derechos
           reservados.
         </Text>

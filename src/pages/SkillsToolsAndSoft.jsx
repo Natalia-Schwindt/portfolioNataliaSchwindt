@@ -32,8 +32,7 @@ const SkillsToolsAndSoft = () => {
       justifyContent="center"
       px={{ base: 4, md: 8 }}
       py={{ base: 6, md: 8 }}
-      backgroundColor={theme.colors.background[900]}
-      color={theme.colors.text[100]}
+      color="text.secondary"
     >
       <VStack 
         spacing={{ base: 8, md: 12 }} 
@@ -43,12 +42,12 @@ const SkillsToolsAndSoft = () => {
         justifyContent="space-evenly"
       >
         <Flex direction="column" alignItems="center" width="100%">
-          <Heading as="h2" fontSize={["4xl", "5xl", "6xl"]} color="title.500" mb={{ base: 6, md: 8 }}>
+          <Heading as="h2" fontSize={["4xl", "5xl", "6xl"]} color="text.primary" mb={{ base: 6, md: 8 }}>
             Herramientas
           </Heading>
           <HStack spacing={{ base: 4, md: 6 }} wrap="wrap" justifyContent="center">
             {toolsSkills.map((skill, index) => (
-              <Box key={index} textAlign="center" p={{ base: 2, md: 3 }} borderRadius="md" bg="background.700" boxShadow="md">
+              <Box key={index} textAlign="center" p={{ base: 2, md: 3 }} borderRadius="md" boxShadow="md">
                 <Icon as={skill.icon} w={["2.2em", "2.8em"]} h={["2.2em", "2.8em"]} color={skill.color} mb={1} />
                 <Text fontSize={["sm", "md"]} fontWeight="medium">{skill.name}</Text>
               </Box>
@@ -57,13 +56,13 @@ const SkillsToolsAndSoft = () => {
         </Flex>
 
         <Flex direction="column" alignItems="center" width="100%">
-          <Heading as="h2" fontSize={["4xl", "5xl", "6xl"]} color="title.500" mb={{ base: 6, md: 8 }}>
+          <Heading as="h2" fontSize={["4xl", "5xl", "6xl"]} color="text.primary" mb={{ base: 6, md: 8 }}>
             Soft Skills
           </Heading>
           <HStack spacing={{ base: 4, md: 6 }} wrap="wrap" justifyContent="center">
             {softSkills.map((skill, index) => (
-              <Box key={index} textAlign="center" p={{ base: 2, md: 3 }} borderRadius="md" bg="background.700" boxShadow="md">
-                <Text fontSize={["sm", "md"]} fontWeight="medium">{skill}</Text>
+              <Box key={index} textAlign="center" p={{ base: 2, md: 3 }} borderRadius="md" boxShadow="md">
+                <Text fontSize={["sm", "md"]} fontWeight="medium" color="subtitle.700">{skill}</Text>
               </Box>
             ))}
           </HStack>
