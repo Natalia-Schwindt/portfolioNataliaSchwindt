@@ -11,8 +11,10 @@ import {
 } from "@chakra-ui/react";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -23,10 +25,8 @@ const Footer = () => {
     e.preventDefault();
 
     if (!serviceID || !templateID || !publicKey) {
-      console.error(
-        "Error: Las variables de entorno de EmailJS no están configuradas correctamente."
-      );
-      alert("Error de configuración: Contacta al administrador del sitio.");
+      console.error(t("footer.alert.configErrorConsole"));
+      alert(t("footer.alert.configError"));
       return;
     }
 
@@ -40,14 +40,12 @@ const Footer = () => {
       .send(serviceID, templateID, templateParams, publicKey)
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
-        alert("Mensaje enviado con éxito. ¡Gracias por contactarme!");
+        alert(t("footer.alert.success"));
         e.target.reset();
       })
       .catch((err) => {
         console.error("FAILED...", err);
-        alert(
-          "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde."
-        );
+        alert(t("footer.alert.failed"));
       });
   };
 
@@ -74,11 +72,10 @@ const Footer = () => {
             color="title.500"
             textAlign="center"
           >
-            Ponte en Contacto
+            {t("footer.title")}
           </Text>
           <Text fontSize={["md", "lg"]} textAlign="center">
-            ¡Me encantaría saber de ti! Puedes contactarme a través de mis redes
-            o usando el siguiente formulario.
+            {t("footer.subtitle")}
           </Text>
         </VStack>
 
@@ -94,7 +91,7 @@ const Footer = () => {
           <VStack spacing={2}>
             <Input
               name="name"
-              placeholder="Tu Nombre"
+              placeholder={t("footer.form.name")}
               _placeholder={{ color: "footer.placeholder" }}
               bg="footer.inputBg"
               borderColor="footer.inputBorder"
@@ -105,7 +102,7 @@ const Footer = () => {
             <Input
               name="email"
               type="email"
-              placeholder="Tu Correo Electrónico"
+              placeholder={t("footer.form.email")}
               _placeholder={{ color: "footer.placeholder" }}
               bg="footer.inputBg"
               borderColor="footer.inputBorder"
@@ -115,7 +112,7 @@ const Footer = () => {
             />
             <Textarea
               name="message"
-              placeholder="Tu Mensaje"
+              placeholder={t("footer.form.message")}
               _placeholder={{ color: "footer.placeholder" }}
               bg="footer.inputBg"
               borderColor="footer.inputBorder"
@@ -134,7 +131,7 @@ const Footer = () => {
               fontWeight="bold"
               _hover={{ bg: "footer.buttonHover" }}
             >
-              Enviar
+              {t("footer.form.submit")}
             </Button>
           </VStack>
         </Box>
@@ -166,7 +163,10 @@ const Footer = () => {
               _hover={{ color: "footer.iconHover" }}
             />
           </Link>
-          <Link href="mailto:naty8014@gmail.com" aria-label="Correo Electrónico">
+          <Link
+            href="mailto:naty8014@gmail.com"
+            aria-label="Correo Electrónico"
+          >
             <Icon
               as={FaEnvelope}
               w={7}
@@ -190,31 +190,30 @@ const Footer = () => {
             href="#home"
             _hover={{ textDecoration: "underline", color: "title.500" }}
           >
-            Inicio
+            {t("nav.home")}
           </Link>
           <Link
             href="#presentation"
             _hover={{ textDecoration: "underline", color: "title.500" }}
           >
-            Sobre mí
+            {t("nav.presentation")}
           </Link>
           <Link
             href="#skills"
             _hover={{ textDecoration: "underline", color: "title.500" }}
           >
-            Skills
+            {t("nav.skills")}
           </Link>
           <Link
             href="#projects"
             _hover={{ textDecoration: "underline", color: "title.500" }}
           >
-            Proyectos
+            {t("nav.projects")}
           </Link>
         </HStack>
 
         <Text fontSize={["sm"]} color="footer.copy" fontWeight="bold">
-          Creado por Natalia Schwindt © {currentYear}. Todos los derechos
-          reservados.
+          {t("footer.copyright", { year: currentYear })}
         </Text>
       </VStack>
     </Box>

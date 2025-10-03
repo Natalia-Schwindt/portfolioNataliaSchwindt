@@ -1,7 +1,9 @@
 import { Box, Heading, Text, Link, Flex, Image } from "@chakra-ui/react";
 import proyectoImg from "../assets/projects/proyectoFinalReact.png";
+import { useTranslation } from "react-i18next";
 
 const ProjectProyectoFinalReact = () => {
+  const { t } = useTranslation();
   return (
     <Box
       height="100vh"
@@ -30,7 +32,7 @@ const ProjectProyectoFinalReact = () => {
         >
           <Image
             src={proyectoImg}
-            alt="Ecommerce Proyecto Final React"
+            alt={t("projects.proyectoFinalReact.title")}
             objectFit="contain"
             width="100%"
             height="100%"
@@ -38,12 +40,8 @@ const ProjectProyectoFinalReact = () => {
           />
         </Box>
 
-        <Heading
-          color="text.primary"
-          mb={3}
-          fontSize={["3xl", "4xl", "5xl"]}
-        >
-          Ecommerce Proyecto Final React
+        <Heading color="text.primary" mb={3} fontSize={["3xl", "4xl", "5xl"]}>
+          {t("projects.proyectoFinalReact.title")}
         </Heading>
 
         <Text
@@ -52,21 +50,21 @@ const ProjectProyectoFinalReact = () => {
           mb={4}
           fontSize={["md", "lg", "xl"]}
         >
-          Aplicación de ecommerce desarrollada con React que simula la experiencia de compra de productos. Permite explorar una base de datos de artículos, aplicar filtros por precio, buscar por nombre, marcar favoritos y gestionar un carrito de compras interactivo. La app simula una compra final mediante una confirmación visual. Utiliza Firebase como backend simulado y está diseñada con Chakra UI para lograr una interfaz accesible y responsive. Incluye navegación dinámica con React Router, formularios optimizados con react-hook-form y animaciones suaves con framer-motion.
+          {t("projects.proyectoFinalReact.description")}
         </Text>
         <Flex width="100%" justifyContent="flex-end" mt={2}>
           <Link
-            href="https://github.com/Natalia-Schwindt/proyectoFinalReact"
+            href={t("projects.proyectoFinalReact.github")}
             target="_blank"
             color="text.primary"
             fontWeight="bold"
-          fontSize="md"
-          mt={2}
-          textDecoration="none"
-          _hover={{ opacity: 0.8 }}
-        >
-          GitHub
-        </Link>
+            fontSize="md"
+            mt={2}
+            textDecoration="none"
+            _hover={{ opacity: 0.8 }}
+          >
+            GitHub
+          </Link>
         </Flex>
       </Flex>
     </Box>

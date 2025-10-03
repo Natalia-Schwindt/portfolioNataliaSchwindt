@@ -1,0 +1,106 @@
+{
+  "title": "Natalia Schwindt",
+  "subtitle": "FullStack Developer",
+  "description": "I turn ideas into efficient and high-impact digital products.",
+
+  "nav": {
+    "home": "Home",
+    "presentation": "About Me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+
+  "app": {
+    "scroll": {
+      "assist": {
+        "enable": "Enable assisted scroll",
+        "disable": "Disable assisted scroll"
+      }
+    }
+  },
+
+  "presentation": {
+    "heading": "The Art of Creating.",
+    "p1": "My fascination with technology began a few years ago, when I discovered the power of bringing abstract ideas to life through code.",
+    "p2": "I dedicate my passion to building solutions that not only work, but also inspire.",
+    "p3": "Every line of code, every project, is an opportunity to reveal a new facet of innovation.",
+    "p4": "I strive for efficiency and elegance, always seeking to turn visions into reality."
+  },
+  "skills": {
+    "frontend": "Frontend",
+    "backend": "Backend"
+  },
+
+  "skillsTools": {
+    "tools": "Tools",
+    "softSkills": "Soft Skills",
+    "soft": {
+      "communication": "Communication",
+      "teamwork": "Teamwork",
+      "problemSolving": "Problem Solving",
+      "criticalThinking": "Critical Thinking",
+      "adaptability": "Adaptability",
+      "timeManagement": "Time Management",
+      "creativity": "Creativity",
+      "empathy": "Empathy",
+      "leadership": "Leadership"
+    }
+  },
+  "projects": {
+    "ahorradas": {
+      "title": "AhorrADAs",
+      "description": "Web application developed in a team with another student as part of a collaborative practice, focused on personal finance management. Allows recording income and expenses, applying filters by type, category, or date, and viewing customized reports. Project built with Vanilla JavaScript, Tailwind CSS, and LocalStorage. Includes a fully translated Russian version, designed to reach a wider audience.",
+      "image": "AhorrADAs.png",
+      "github": "https://github.com/Natalia-Schwindt/proyectoAhorrADAs"
+    },
+    "buscadorDeComics": {
+      "title": "Comics Finder",
+      "description": "Web application that allows searching, filtering, and sorting Marvel comics and characters using their official API. Includes pagination and displays results in responsive cards with images and basic details. Developed with HTML, Tailwind CSS, and pure JavaScript.",
+      "image": "BuscadorDeComics.png",
+      "github": "https://github.com/Natalia-Schwindt/buscadorDeComics"
+    },
+    "editorDeMemes": {
+      "title": "Meme Editor",
+      "description": "Individually developed meme editor using HTML, CSS, and Vanilla JavaScript. Allows customizing images by adding top and bottom text with multiple editing options: font, size, alignment, color, outline, spacing, and line height. Also includes tools to modify image appearance with filters (brightness, contrast, opacity, blur) and download the final meme as an image. The project focused on DOM manipulation, dynamic styles, and visual usability.",
+      "image": "EditorDeMemes.png",
+      "github": "https://github.com/Natalia-Schwindt/editordememes"
+    },
+    "proyectoFinalReact": {
+      "title": "Ecommerce Final React Project",
+      "description": "Ecommerce application developed with React that simulates the experience of buying products. Allows browsing a product database, applying price filters, searching by name, marking favorites, and managing an interactive shopping cart. The app simulates a final purchase through visual confirmation. Uses Firebase as a simulated backend and is designed with Chakra UI for an accessible and responsive interface. Includes dynamic navigation with React Router, optimized forms with react-hook-form, and smooth animations with framer-motion.",
+      "image": "proyectoFinalReact.png",
+      "github": "https://github.com/Natalia-Schwindt/proyectoFinalReact"
+    },
+    "proyectoQR": {
+      "title": "QR Project",
+      "description": "Web design project simulating a restaurant's digital menu. Developed with pure HTML and CSS. Images were created with AI (Leonardo AI), providing an original and coherent visual style. The site has navigable sections for drinks, meals, and desserts, accompanied by creative descriptions that reinforce the restaurant's identity. The experience is completed with a QR code for easy access to the menu from mobile devices, simulating real-world usage. This project was one of the most enjoyable due to its combination of design, storytelling, and visual creativity.",
+      "image": "ProyectoQR.png",
+      "github": "https://github.com/Natalia-Schwindt/proyectoqr"
+    },
+    "toDoList": {
+      "title": "ToDo List",
+      "description": "Application developed as the final project of Module V at ADA ITW. Allows creating and managing task lists dynamically, intuitively, and fully responsively. Users can add tasks, edit them, filter by status (pending or completed), and delete them as needed. Designed with React and Chakra UI for a smooth user experience on any device. A practical tool for improving personal or work organization. The project uses Vite for a fast and efficient development environment.",
+      "image": "ToDoList.png",
+      "github": "https://github.com/Natalia-Schwindt/todolist"
+    }
+  },
+
+  "footer": {
+    "alert": {
+      "configError": "Configuration error: Please contact the site administrator.",
+      "configErrorConsole": "Error: EmailJS environment variables are not configured correctly.",
+      "success": "Message sent successfully. Thank you for contacting me!",
+      "failed": "There was an error sending the message. Please try again later."
+    },
+    "title": "Get in Touch",
+    "subtitle": "I'd love to hear from you! You can reach me via my social networks or using the form below.",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "message": "Your Message",
+      "submit": "Send"
+    },
+    "copyright": "Created by Natalia Schwindt © {{year}}. All rights reserved."
+  }
+}

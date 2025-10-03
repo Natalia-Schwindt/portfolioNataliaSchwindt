@@ -1,7 +1,10 @@
 import { Box, Heading, Text, Link, Flex, Image } from "@chakra-ui/react";
 import proyectoImg from "../assets/projects/BuscadorDeComics.png";
+import { useTranslation } from "react-i18next";
 
 const ProjectBuscadorDeComics = () => {
+  const { t } = useTranslation();
+
   return (
     <Box
       height="100vh"
@@ -30,7 +33,7 @@ const ProjectBuscadorDeComics = () => {
         >
           <Image
             src={proyectoImg}
-            alt="Ecommerce Proyecto Final React"
+            alt={t("projects.buscadorDeComics.title")}
             objectFit="contain"
             width="100%"
             height="100%"
@@ -38,12 +41,8 @@ const ProjectBuscadorDeComics = () => {
           />
         </Box>
 
-        <Heading
-          color="text.primary"
-          mb={3}
-          fontSize={["3xl", "4xl", "5xl"]}
-        >
-          Buscador de Comics
+        <Heading color="text.primary" mb={3} fontSize={["3xl", "4xl", "5xl"]}>
+          {t("projects.buscadorDeComics.title")}
         </Heading>
 
         <Text
@@ -52,21 +51,21 @@ const ProjectBuscadorDeComics = () => {
           mb={4}
           fontSize={["md", "lg", "xl"]}
         >
-          Aplicación web que permite buscar, filtrar y ordenar cómics y personajes de Marvel usando su API oficial. Cuenta con paginación y muestra resultados en tarjetas responsivas con imágenes y detalles básicos. Desarrollada con HTML, Tailwind CSS y JavaScript puro.
+          {t("projects.buscadorDeComics.description")}
         </Text>
         <Flex width="100%" justifyContent="flex-end" mt={2}>
           <Link
-            href="https://github.com/Natalia-Schwindt/buscadorDeComics"
+            href={t("projects.buscadorDeComics.github")}
             target="_blank"
             color="text.primary"
             fontWeight="bold"
-          fontSize="md"
-          mt={2}
-          textDecoration="none"
-          _hover={{ opacity: 0.8 }}
-        >
-          GitHub
-        </Link>
+            fontSize="md"
+            mt={2}
+            textDecoration="none"
+            _hover={{ opacity: 0.8 }}
+          >
+            GitHub
+          </Link>
         </Flex>
       </Flex>
     </Box>

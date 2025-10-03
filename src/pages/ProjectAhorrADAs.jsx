@@ -1,7 +1,10 @@
 import { Box, Heading, Text, Link, Flex, Image } from "@chakra-ui/react";
 import proyectoImg from "../assets/projects/AhorrADAs.png";
+import { useTranslation } from "react-i18next";
 
 const ProjectAhorrADAs = () => {
+  const { t } = useTranslation();
+
   return (
     <Box
       id="projects"
@@ -31,7 +34,7 @@ const ProjectAhorrADAs = () => {
         >
           <Image
             src={proyectoImg}
-            alt="Ecommerce Proyecto Final React"
+            alt={t("projects.ahorradas.title")}
             objectFit="contain"
             width="100%"
             height="100%"
@@ -39,12 +42,8 @@ const ProjectAhorrADAs = () => {
           />
         </Box>
 
-        <Heading
-          color="text.primary"
-          mb={3}
-          fontSize={["3xl", "4xl", "5xl"]}
-        >
-          AhorrADAs
+        <Heading color="text.primary" mb={3} fontSize={["3xl", "4xl", "5xl"]}>
+          {t("projects.ahorradas.title")}
         </Heading>
 
         <Text
@@ -53,21 +52,21 @@ const ProjectAhorrADAs = () => {
           mb={4}
           fontSize={["md", "lg", "xl"]}
         >
-          Aplicación web desarrollada en equipo con otra estudiante, como parte de una práctica colaborativa, orientada a la gestión de finanzas personales. Permite registrar ingresos y gastos, aplicar filtros por tipo, categoría o fecha, y visualizar reportes personalizados. Proyecto realizado con JavaScript Vanilla, Tailwind CSS y LocalStorage. Incluye una versión traducida completamente al ruso, pensada para ampliar el alcance a otros públicos.
+          {t("projects.ahorradas.description")}
         </Text>
         <Flex width="100%" justifyContent="flex-end" mt={2}>
           <Link
-            href="https://github.com/Natalia-Schwindt/proyectoAhorrADAs"
+            href={t("projects.ahorradas.github")}
             target="_blank"
             color="text.primary"
             fontWeight="bold"
-          fontSize="md"
-          mt={2}
-          textDecoration="none"
-          _hover={{ opacity: 0.8 }}
-        >
-          GitHub
-        </Link>
+            fontSize="md"
+            mt={2}
+            textDecoration="none"
+            _hover={{ opacity: 0.8 }}
+          >
+            GitHub
+          </Link>
         </Flex>
       </Flex>
     </Box>

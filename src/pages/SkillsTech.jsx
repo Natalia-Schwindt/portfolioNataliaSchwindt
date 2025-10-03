@@ -7,7 +7,6 @@ import {
   HStack,
   Icon,
 } from "@chakra-ui/react";
-import theme from "../theme";
 import {
   SiHtml5,
   SiCss3,
@@ -23,8 +22,11 @@ import {
   SiMysql,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const SkillsTech = () => {
+  const { t } = useTranslation();
+
   const frontendSkills = [
     { name: "HTML", icon: SiHtml5, color: "#E34F26" },
     { name: "CSS", icon: SiCss3, color: "#1572B6" },
@@ -70,7 +72,7 @@ const SkillsTech = () => {
             color="text.primary"
             mb={{ base: 6, md: 8 }}
           >
-            Frontend
+            {t("skills.frontend")}
           </Heading>
           <HStack
             spacing={{ base: 4, md: 6 }}
@@ -107,7 +109,7 @@ const SkillsTech = () => {
             color="text.primary"
             mb={{ base: 6, md: 8 }}
           >
-            Backend
+            {t("skills.backend")}
           </Heading>
           <HStack
             spacing={{ base: 4, md: 6 }}

@@ -14,38 +14,26 @@ const theme = extendTheme({
   },
   semanticTokens: {
     colors: {
-      
-      // Fondo Principal (Body/Header/App.jsx Box): CLARO (title.200) / OSCURO (background.800 - FIJO)
       'bg.primary': { default: 'title.200', _dark: 'background.800' },
       'bg.header': { default: 'title.200', _dark: 'background.800' },
-      
-      // Texto Principal (Títulos/Párr. Grales): CLARO (text.500) / OSCURO (title.500 - FIJO)
       'text.primary': { default: 'text.600', _dark: 'title.500' },
-      
-      // Texto Secundario/Enlaces/Menús: CLARO (text.400) / OSCURO (subtitle.500 - FIJO)
       'text.secondary': { default: 'text.500', _dark: 'subtitle.500' },
-      
-      // Icono de Modo: CLARO (background.500) / OSCURO (subtitle.500 - FIJO)
       'icon.switch': { default: 'background.500', _dark: 'subtitle.500' },
-      
-      // Botón activar/desactivar scroll asistido
       'btn.utilBg': { default: 'title.300', _dark: 'background.400' },
       'btn.utilText': { default: 'background.500', _dark: 'subtitle.500' },
-
-      // Footer
-    'footer.bg': { default: 'title.200', _dark: 'background.800' },
-    'footer.inputBg': { default: 'text.50', _dark: 'background.700' },
-    'footer.inputBorder': { default: 'text.200', _dark: 'background.600' },
-    'footer.text': { default: 'text.500', _dark: 'text.100' },
-    'footer.placeholder': { default: 'text.400', _dark: 'text.200' },
-    'footer.buttonBg': { default: 'title.400', _dark: 'title.500' },
-    'footer.buttonHover': { default: 'title.300', _dark: 'title.400' },
-    'footer.icon': { default: 'text.500', _dark: 'text.100' },
-    'footer.iconHover': { default: 'title.500', _dark: 'title.500' },
-    'footer.copy': { default: 'text.400', _dark: 'text.200' },
+      'footer.bg': { default: 'title.200', _dark: 'background.800' },
+      'footer.inputBg': { default: 'text.50', _dark: 'background.700' },
+      'footer.inputBorder': { default: 'text.200', _dark: 'background.600' },
+      'footer.text': { default: 'text.500', _dark: 'text.100' },
+      'footer.placeholder': { default: 'text.400', _dark: 'text.200' },
+      'footer.buttonBg': { default: 'title.400', _dark: 'title.500' },
+      'footer.buttonHover': { default: 'title.300', _dark: 'title.400' },
+      'footer.icon': { default: 'text.500', _dark: 'text.100' },
+      'footer.iconHover': { default: 'title.500', _dark: 'title.500' },
+      'footer.copy': { default: 'text.400', _dark: 'text.200' },
     },
   },
-  
+
   colors: {
     background: {
       100: "#a6c5c3",

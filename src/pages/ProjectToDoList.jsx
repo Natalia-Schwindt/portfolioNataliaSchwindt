@@ -1,7 +1,9 @@
 import { Box, Heading, Text, Link, Flex, Image } from "@chakra-ui/react";
 import proyectoImg from "../assets/projects/ToDoList.png";
+import { useTranslation } from "react-i18next";
 
 const ProjectToDoList = () => {
+  const { t } = useTranslation();
   return (
     <Box
       height="100vh"
@@ -30,7 +32,7 @@ const ProjectToDoList = () => {
         >
           <Image
             src={proyectoImg}
-            alt="Ecommerce Proyecto Final React"
+            alt={t("projects.toDoList.title")}
             objectFit="contain"
             width="100%"
             height="100%"
@@ -38,12 +40,8 @@ const ProjectToDoList = () => {
           />
         </Box>
 
-        <Heading
-          color="text.primary"
-          mb={3}
-          fontSize={["3xl", "4xl", "5xl"]}
-        >
-          ToDo List
+        <Heading color="text.primary" mb={3} fontSize={["3xl", "4xl", "5xl"]}>
+          {t("projects.toDoList.title")}
         </Heading>
 
         <Text
@@ -52,21 +50,21 @@ const ProjectToDoList = () => {
           mb={4}
           fontSize={["md", "lg", "xl"]}
         >
-          Aplicación desarrollada como proyecto final del Módulo V de ADA ITW. Permite crear y gestionar listas de tareas de forma dinámica, intuitiva y completamente responsiva. El usuario puede añadir tareas, editarlas, filtrarlas por estado (pendientes o realizadas), y eliminarlas según necesidad. El diseño se realizó con React y Chakra UI, asegurando una experiencia de uso fluida desde cualquier dispositivo. Es una herramienta práctica pensada para mejorar la organización personal o laboral. El proyecto utiliza Vite para un entorno de desarrollo rápido y eficiente.
+          {t("projects.toDoList.description")}
         </Text>
         <Flex width="100%" justifyContent="flex-end" mt={2}>
           <Link
-            href="https://github.com/Natalia-Schwindt/todolist"
+            href={t("projects.toDoList.github")}
             target="_blank"
             color="text.primary"
             fontWeight="bold"
-          fontSize="md"
-          mt={2}
-          textDecoration="none"
-          _hover={{ opacity: 0.8 }}
-        >
-          GitHub
-        </Link>
+            fontSize="md"
+            mt={2}
+            textDecoration="none"
+            _hover={{ opacity: 0.8 }}
+          >
+            GitHub
+          </Link>
         </Flex>
       </Flex>
     </Box>

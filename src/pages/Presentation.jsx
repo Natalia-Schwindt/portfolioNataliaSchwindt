@@ -1,28 +1,15 @@
 import { Box, Heading, Text, Flex } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 const Presentation = () => {
+  const { t } = useTranslation();
+
   const presentationContent = [
-    { type: "heading", content: "El Arte de Crear." },
-    {
-      type: "paragraph",
-      content:
-        "Mi fascinación por la tecnología comenzó hace unos años, cuando descubrí el poder de dar vida a ideas abstractas a través del código.",
-    },
-    {
-      type: "paragraph",
-      content:
-        "Dedico mi pasión a construir soluciones que no solo funcionen, sino que también inspiren.",
-    },
-    {
-      type: "paragraph",
-      content:
-        "Cada línea de código, cada proyecto, es una oportunidad para desvelar una nueva faceta de la innovación.",
-    },
-    {
-      type: "paragraph",
-      content:
-        "Me esfuerzo por la eficiencia y la elegancia, buscando siempre convertir visiones en realidad.",
-    },
+    { type: "heading", content: t("presentation.heading") },
+    { type: "paragraph", content: t("presentation.p1") },
+    { type: "paragraph", content: t("presentation.p2") },
+    { type: "paragraph", content: t("presentation.p3") },
+    { type: "paragraph", content: t("presentation.p4") },
   ];
 
   return (

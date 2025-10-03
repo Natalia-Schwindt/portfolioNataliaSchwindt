@@ -1,7 +1,10 @@
 import { Box, Heading, Text, Link, Flex, Image } from "@chakra-ui/react";
 import proyectoImg from "../assets/projects/EditorDeMemes.png";
+import { useTranslation } from "react-i18next";
 
 const ProjectEditorDeMemes = () => {
+  const { t } = useTranslation();
+
   return (
     <Box
       height="100vh"
@@ -30,7 +33,7 @@ const ProjectEditorDeMemes = () => {
         >
           <Image
             src={proyectoImg}
-            alt="Ecommerce Proyecto Final React"
+            alt={t("projects.editorDeMemes.title")}
             objectFit="contain"
             width="100%"
             height="100%"
@@ -38,12 +41,8 @@ const ProjectEditorDeMemes = () => {
           />
         </Box>
 
-        <Heading
-          color="text.primary"
-          mb={3}
-          fontSize={["3xl", "4xl", "5xl"]}
-        >
-          Editor de Memes
+        <Heading color="text.primary" mb={3} fontSize={["3xl", "4xl", "5xl"]}>
+          {t("projects.editorDeMemes.title")}
         </Heading>
 
         <Text
@@ -52,21 +51,21 @@ const ProjectEditorDeMemes = () => {
           mb={4}
           fontSize={["md", "lg", "xl"]}
         >
-          Editor de memes desarrollado de forma individual con HTML, CSS y JavaScript Vanilla. La aplicación permite personalizar imágenes agregando texto superior e inferior, con múltiples opciones de edición: fuente, tamaño, alineación, color, contorno, espaciado e interlineado. Incluye además herramientas para modificar la apariencia de la imagen mediante filtros (brillo, contraste, opacidad, desenfoque, entre otros) y una opción para descargar el meme final en formato de imagen. El proyecto se enfocó en la práctica de manipulación del DOM, estilos dinámicos y usabilidad en la edición visual.
+          {t("projects.editorDeMemes.description")}
         </Text>
         <Flex width="100%" justifyContent="flex-end" mt={2}>
           <Link
-            href="https://github.com/Natalia-Schwindt/editordememes"
+            href={t("projects.editorDeMemes.github")}
             target="_blank"
             color="text.primary"
             fontWeight="bold"
-          fontSize="md"
-          mt={2}
-          textDecoration="none"
-          _hover={{ opacity: 0.8 }}
-        >
-          GitHub
-        </Link>
+            fontSize="md"
+            mt={2}
+            textDecoration="none"
+            _hover={{ opacity: 0.8 }}
+          >
+            GitHub
+          </Link>
         </Flex>
       </Flex>
     </Box>

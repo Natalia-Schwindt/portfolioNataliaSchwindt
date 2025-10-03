@@ -1,7 +1,9 @@
 import { Box, Heading, Text, Link, Flex, Image } from "@chakra-ui/react";
 import proyectoImg from "../assets/projects/ProyectoQR.png";
+import { useTranslation } from "react-i18next";
 
 const ProjectProyectoQR = () => {
+  const { t } = useTranslation();
   return (
     <Box
       height="100vh"
@@ -30,7 +32,7 @@ const ProjectProyectoQR = () => {
         >
           <Image
             src={proyectoImg}
-            alt="Ecommerce Proyecto Final React"
+            alt={t("projects.proyectoQR.title")}
             objectFit="contain"
             width="100%"
             height="100%"
@@ -38,12 +40,8 @@ const ProjectProyectoQR = () => {
           />
         </Box>
 
-        <Heading
-          color="text.primary"
-          mb={3}
-          fontSize={["3xl", "4xl", "5xl"]}
-        >
-          Proyecto QR
+        <Heading color="text.primary" mb={3} fontSize={["3xl", "4xl", "5xl"]}>
+          {t("projects.proyectoQR.title")}
         </Heading>
 
         <Text
@@ -52,21 +50,21 @@ const ProjectProyectoQR = () => {
           mb={4}
           fontSize={["md", "lg", "xl"]}
         >
-          Proyecto de diseño web que simula la carta digital de un restaurante. Fue desarrollado con HTML y CSS puros. Las imágenes fueron creadas con inteligencia artificial (Leonardo AI), lo que permitió dar un estilo visual original y coherente. El sitio presenta secciones navegables de bebidas, comidas y postres, acompañadas de descripciones creativas que refuerzan la identidad del restaurante. La experiencia se completa con un código QR que permite acceder fácilmente a la carta desde dispositivos móviles, simulando su uso en un entorno real. Este proyecto fue uno de los más disfrutados, por su combinación de diseño, narrativa y creatividad visual.
+          {t("projects.proyectoQR.description")}
         </Text>
         <Flex width="100%" justifyContent="flex-end" mt={2}>
           <Link
-            href="https://github.com/Natalia-Schwindt/proyectoqr"
+            href={t("projects.proyectoQR.github")}
             target="_blank"
             color="text.primary"
             fontWeight="bold"
-          fontSize="md"
-          mt={2}
-          textDecoration="none"
-          _hover={{ opacity: 0.8 }}
-        >
-          GitHub
-        </Link>
+            fontSize="md"
+            mt={2}
+            textDecoration="none"
+            _hover={{ opacity: 0.8 }}
+          >
+            GitHub
+          </Link>
         </Flex>
       </Flex>
     </Box>

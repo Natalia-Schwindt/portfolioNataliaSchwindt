@@ -13,12 +13,14 @@ import {
   DrawerCloseButton,
   VStack,
   Heading,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import ReactCountryFlag from "react-country-flag";
+import { useTranslation } from "react-i18next";
 
 const Home = ({ scrollToSection, navItems }) => {
+  const { t, i18n } = useTranslation();
   const languageOptions = [
     { countryCode: "ES", langCode: "es", title: "Spanish" },
     { countryCode: "RU", langCode: "ru", title: "Russian" },
@@ -29,7 +31,7 @@ const Home = ({ scrollToSection, navItems }) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const handleChangeLanguage = (langCode) => {
-    console.log(`Intentando cambiar idioma a: ${langCode}`);
+    i18n.changeLanguage(langCode);
   };
 
   return (
@@ -86,7 +88,6 @@ const Home = ({ scrollToSection, navItems }) => {
           )}
         </Flex>
 
-        {/* Solo banderas de idioma */}
         <HStack spacing={2} mr="15px">
           {languageOptions.map((lang) => (
             <Link
@@ -121,11 +122,7 @@ const Home = ({ scrollToSection, navItems }) => {
             width="50vw"
             borderBottomRadius="md"
           >
-            <DrawerCloseButton
-              color="text.secondary"
-              mt={2}
-              left={2}
-            />
+            <DrawerCloseButton color="text.secondary" mt={2} left={2} />
             <DrawerBody py={6}>
               <VStack spacing={1} alignItems="center">
                 {navItems.map((item) => (
@@ -181,7 +178,7 @@ const Home = ({ scrollToSection, navItems }) => {
             color="text.primary"
             mx={{ base: 4, md: 8 }}
           >
-            Natalia Schwindt
+            {t("title")}
           </Heading>
 
           <Text
@@ -191,7 +188,7 @@ const Home = ({ scrollToSection, navItems }) => {
             mx={{ base: 6, md: 12 }}
             mb={2}
           >
-            Desarrolladora FullStack
+            {t("subtitle")}
           </Text>
 
           <Text
@@ -200,7 +197,7 @@ const Home = ({ scrollToSection, navItems }) => {
             color="text.primary"
             mx={{ base: 6, md: 12 }}
           >
-            Transformo ideas en productos digitales eficientes y de alto impacto.
+            {t("description")}
           </Text>
         </Flex>
       </Box>
