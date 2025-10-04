@@ -11,8 +11,9 @@ const ProjectEditorDeMemes = () => {
       display="flex"
       flexDirection="column"
       alignItems="center"
-      justifyContent="center"
+      justifyContent="flex-start"
       px={{ base: 4, md: 12 }}
+      pt={{ base: "60px", md: "100px", lg: "120px" }}
     >
       <Flex
         direction="column"

@@ -103,6 +103,12 @@
       "message": "Tu Mensaje",
       "submit": "Enviar"
     },
+    "links": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Correo Electrónico",
+      "cv": "Currículum"
+    },
     "copyright": "Creado por Natalia Schwindt © {{year}}. Todos los derechos reservados."
   }
 }

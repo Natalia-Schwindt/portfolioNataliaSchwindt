@@ -8,8 +8,9 @@ import {
   Input,
   Textarea,
   Button,
+  Tooltip
 } from "@chakra-ui/react";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaFilePdf } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
 
@@ -137,10 +138,12 @@ const Footer = () => {
         </Box>
 
         <HStack spacing={6} mt={2}>
+          <Tooltip label={t("footer.links.linkedin")} aria-label="LinkedIn Tooltip">
           <Link
             href="https://www.linkedin.com/in/natalia-schwindt-react-java-developer/"
             isExternal
             aria-label="LinkedIn"
+            title="LinkedIn"
           >
             <Icon
               as={FaLinkedin}
@@ -150,10 +153,13 @@ const Footer = () => {
               _hover={{ color: "footer.iconHover" }}
             />
           </Link>
+          </Tooltip>
+          <Tooltip label={t("footer.links.github")} aria-label="GitHub Tooltip">
           <Link
             href="https://github.com/Natalia-Schwindt"
             isExternal
             aria-label="GitHub"
+            title="GitHub"
           >
             <Icon
               as={FaGithub}
@@ -163,9 +169,12 @@ const Footer = () => {
               _hover={{ color: "footer.iconHover" }}
             />
           </Link>
+          </Tooltip>
+          <Tooltip label={t("footer.links.email")} aria-label="Correo Electrónico Tooltip">
           <Link
             href="mailto:naty8014@gmail.com"
             aria-label="Correo Electrónico"
+            title="Correo Electrónico"
           >
             <Icon
               as={FaEnvelope}
@@ -175,41 +184,23 @@ const Footer = () => {
               _hover={{ color: "footer.iconHover" }}
             />
           </Link>
-        </HStack>
-
-        <HStack
-          spacing={4}
-          wrap="wrap"
-          justifyContent="center"
-          fontSize={["sm", "md"]}
-          fontWeight="bold"
-          mt={1}
-          mb={1}
-        >
+          </Tooltip>
+          <Tooltip label={t("footer.links.cv")} aria-label="Currículum Tooltip">
           <Link
-            href="#home"
-            _hover={{ textDecoration: "underline", color: "title.500" }}
+            href="https://docs.google.com/document/d/1P3OM3sDTahxkMgAPgYT8A3n2x6lP9vR_/edit?pli=1"
+            isExternal
+            aria-label="Currículum"
+            title="Currículum"
           >
-            {t("nav.home")}
+            <Icon
+              as={FaFilePdf}
+              w={7}
+              h={7}
+              color="footer.icon"
+              _hover={{ color: "footer.iconHover" }}
+            />
           </Link>
-          <Link
-            href="#presentation"
-            _hover={{ textDecoration: "underline", color: "title.500" }}
-          >
-            {t("nav.presentation")}
-          </Link>
-          <Link
-            href="#skills"
-            _hover={{ textDecoration: "underline", color: "title.500" }}
-          >
-            {t("nav.skills")}
-          </Link>
-          <Link
-            href="#projects"
-            _hover={{ textDecoration: "underline", color: "title.500" }}
-          >
-            {t("nav.projects")}
-          </Link>
+          </Tooltip>
         </HStack>
 
         <Text fontSize={["sm"]} color="footer.copy" fontWeight="bold">

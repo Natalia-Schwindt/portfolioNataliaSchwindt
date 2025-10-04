@@ -2,15 +2,13 @@ import { useRef, useEffect, useState, useCallback } from "react";
 import {
   Box,
   ChakraProvider,
-  Button,
-  Flex,
-  useColorModeValue,
   IconButton,
   useColorMode,
 } from "@chakra-ui/react";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 import theme from "./theme";
 import "./i18n";
+import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Presentation from "./pages/Presentation";
 import SkillsTech from "./pages/SkillsTech.jsx";
@@ -56,19 +54,23 @@ function App() {
   const isScrolling = useRef(false);
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [assistedScroll, setAssistedScroll] = useState(!isMobile);
-
-  const activeBg = useColorModeValue("title.400", "background.500");
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+  const [assistedScroll, setAssistedScroll] = useState(isDesktop);
 
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
+      const desktop = window.innerWidth >= 1024;
       setIsMobile(mobile);
-      if (mobile) setAssistedScroll(false);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+      setIsDesktop(desktop);
+
+      if (!desktop) {
+      setAssistedScroll(false);
+    }
+  };
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   const pageData = [
     { name: "home", label: t("nav.home"), component: <Home /> },
@@ -142,35 +144,15 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      {!isMobile && (
-        <Flex position="fixed" top="15px" right="60px" zIndex="1000">
-          <Button
-            size="sm"
-            ml={4}
-            px={3}
-            py={1.5}
-            bg="btn.utilBg"
-            color="btn.utilText"
-            fontSize="sm"
-            fontWeight="semibold"
-            borderRadius="md"
-            boxShadow="md"
-            _hover={{ bg: "rgba(255, 255, 255, 0.25)" }}
-            _active={{ bg: activeBg, opacity: 0.9 }}
-            onClick={() => setAssistedScroll(!assistedScroll)}
-          >
-            {assistedScroll
-              ? t("app.scroll.assist.disable")
-              : t("app.scroll.assist.enable")}
-          </Button>
-        </Flex>
-      )}
+      <NavBar
+        isMobile={isMobile}
+        assistedScroll={assistedScroll}
+        setAssistedScroll={setAssistedScroll}
+        navItems={navItems}
+        scrollToSection={scrollToSection}
+      />
 
-      <Flex position="fixed" top="10px" right="10px" zIndex="1100">
-        <ColorModeSwitcher />
-      </Flex>
-
-      <Box minH="100vh" overflow="hidden" bg="bg.primary">
+      <Box as="main" pt="64px" minH="100vh" overflow="hidden" bg="bg.primary">
         {pageData.map((page, index) => (
           <Box
             key={index}

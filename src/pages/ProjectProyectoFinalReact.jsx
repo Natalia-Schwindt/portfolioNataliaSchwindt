@@ -10,8 +10,9 @@ const ProjectProyectoFinalReact = () => {
       display="flex"
       flexDirection="column"
       alignItems="center"
-      justifyContent="center"
+      justifyContent="flex-start"
       px={{ base: 4, md: 12 }}
+      pt={{ base: "80px", md: "70px", lg: "100px" }}
     >
       <Flex
         direction="column"
@@ -24,7 +25,7 @@ const ProjectProyectoFinalReact = () => {
       >
         <Box
           width={{ base: "80%", md: "70%", lg: "60%" }}
-          maxH={{ base: "250px", md: "400px", lg: "500px" }}
+          maxH={{ base: "250px", md: "300px", lg: "500px" }}
           mb={6}
           borderRadius="md"
           overflow="hidden"
@@ -46,9 +47,9 @@ const ProjectProyectoFinalReact = () => {
 
         <Text
           color="text.secondary"
-          fontWeight="normal"
+          fontWeight="semibold"
           mb={4}
-          fontSize={["md", "lg", "xl"]}
+          fontSize={["sm", "md", "lg"]}
         >
           {t("projects.proyectoFinalReact.description")}
         </Text>
